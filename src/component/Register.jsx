@@ -1,12 +1,24 @@
 import React from 'react'
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
+    
     const handleRegister = e => {
         e.preventDefault()
         const name = e.target.name.value
         const email = e.target.email.value;
         const password = e.target.password.value;
         console.log(email, password, name)
+        //create user
+        createUser(email,password)
+        .then(result =>{
+            console.log(result)
+        })
+        .catch(error =>{
+            console.error(error)
+        })
     }
     return (
         <div>
@@ -48,7 +60,7 @@ const Register = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary">Register</button>
                             </div>
                         </form>
 

@@ -1,12 +1,11 @@
-import React, { useContext } from 'react'
-import { AuthContext } from '../provider/AuthProvider'
+
 
 const Home = () => {
-  const authInfo = useContext(AuthContext);
-  console.log(authInfo)
+
+  console.log()
   return (
     <div>
-      <h2 className="text-3xl">This is Home:{authInfo.name}</h2>
+      <h2 className="text-3xl">This is Home:</h2>
     </div>
   )
 }
